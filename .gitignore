@@ -1,0 +1,54 @@
+# -------------------------
+# Python / FastAPI
+# -------------------------
+backend/.venv/
+backend/venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+.env
+*.env
+
+# Logs
+*.log
+
+# -------------------------
+# Node / React
+# -------------------------
+frontend/node_modules/
+node_modules/
+
+# Build output
+frontend/dist/
+frontend/build/
+dist/
+build/
+
+# -------------------------
+# OS / Editor
+# -------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Testing / cache
+# -------------------------
+.pytest_cache/
+.coverage
+.cache/
+
+# -------------------------
+# Secrets (IMPORTANT)
+# -------------------------
+backend/.env
+frontend/.env
+.env
+
+# Example if you have Groq key in config files
+config.py
+secrets.py

@@ -1,0 +1,94 @@
+# ─────────────────────────────────────────────────────────────
+# HCP CRM - Backend Requirements
+# Install all with: uv pip install -r requirements.txt
+# ─────────────────────────────────────────────────────────────
+
+
+# ── WEB FRAMEWORK ─────────────────────────────────────────────
+fastapi==0.115.0
+# FastAPI is the main web framework for building our REST API
+# It handles all HTTP routes like POST /interactions, GET /chat etc.
+# Very fast, modern Python web framework with automatic docs at /docs
+
+
+uvicorn==0.30.6
+# Uvicorn is the server that RUNS our FastAPI app
+# When you type: uvicorn main:app --reload → this is what starts the server
+# --reload means server auto-restarts when you save code changes
+
+
+# ── DATABASE ──────────────────────────────────────────────────
+sqlalchemy==2.0.35
+# SQLAlchemy is our ORM (Object Relational Mapper)
+# It lets us write Python classes (models.py) instead of raw SQL
+# Example: db.add(interaction) instead of INSERT INTO interactions...
+# It auto-creates tables in MySQL when app starts
+
+
+pymysql==1.1.1
+# PyMySQL is the MySQL driver/connector for Python
+# SQLAlchemy uses this under the hood to talk to MySQL
+# Required because we use: mysql+pymysql:// in our DATABASE_URL
+# Without this, Python cannot connect to MySQL at all
+
+
+# ── ENVIRONMENT & CONFIG ──────────────────────────────────────
+python-dotenv==1.0.1
+# Loads our .env file automatically
+# So when we write os.getenv("GROQ_API_KEY") in code,
+# it reads the value from our .env file
+# Keeps secrets like API keys and passwords out of code
+
+
+# ── AI / LLM FRAMEWORK ───────────────────────────────────────
+langchain==0.3.7
+# LangChain is the base AI framework
+# Provides core building blocks for working with LLMs
+# Used for: prompt templates, message formatting, chains
+# Everything langchain-groq and langgraph depend on this
+
+
+langchain-groq==0.2.1
+# This is the Groq-specific integration for LangChain
+# Allows us to use Groq's API with the gemma2-9b-it model
+# Used in agent.py: ChatGroq(api_key=..., model="gemma2-9b-it")
+# Groq gives us very fast LLM inference for free
+
+
+langchain-core==0.3.15
+# Core interfaces and base classes for LangChain
+# Provides: HumanMessage, AIMessage, SystemMessage, @tool decorator
+# Used in agent.py for building messages and defining tools
+# Required by both langchain and langgraph
+
+
+langgraph==0.2.38
+# LangGraph is the AI Agent framework - the MAIN requirement of this project
+# Lets us build a graph-based AI agent with nodes and edges
+# Our agent flow: START → agent node → tools node → agent node → END
+# Manages which tool to call based on user message
+# Without this, the project will NOT be accepted
+
+
+# ── DATA VALIDATION ───────────────────────────────────────────
+pydantic==2.9.2
+# Pydantic handles all request and response data validation
+# Used in schemas.py for InteractionCreate, InteractionUpdate etc.
+# When frontend sends JSON, Pydantic checks if all fields are correct
+# FastAPI uses Pydantic automatically for all request bodies
+
+
+# ── SECURITY ──────────────────────────────────────────────────
+cryptography==43.0.3
+# Required by PyMySQL for secure MySQL connections
+# Handles SSL/TLS encryption when connecting to MySQL database
+# PyMySQL needs this internally - we don't use it directly in code
+# Without this, you may get a cryptography import error
+
+
+# ── FILE UPLOADS ──────────────────────────────────────────────
+python-multipart==0.0.12
+# Required by FastAPI to handle form data and file uploads
+# Needed when frontend sends multipart/form-data requests
+# FastAPI shows a warning without this if forms are used
+# ─────────────────────────────────────────────────────────────
