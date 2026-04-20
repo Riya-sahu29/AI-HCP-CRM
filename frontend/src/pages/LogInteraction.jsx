@@ -42,7 +42,7 @@ export default function LogInteraction() {
 
   //  Chat State 
   const [chatInput, setChatInput] = useState('');
-  const bottomRef = useRef(null);
+  const bottomRef = useRef(null); 
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
