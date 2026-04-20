@@ -10,7 +10,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const location = useLocation();
+  const location = useLocation(); 
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
