@@ -10,7 +10,7 @@ export default function EditModal({ interaction, onClose }) {
     hcp_specialty:     '',
     interaction_type:  'visit',
     product_discussed: '',
-    notes:             '',
+    notes:             '', 
     interaction_date:  '', 
     follow_up_date:    '',
     follow_up_notes:   '',
