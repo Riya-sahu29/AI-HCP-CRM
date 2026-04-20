@@ -10,14 +10,14 @@ app = FastAPI(
     title="HCP CRM API",
     version="1.0.0",
     redirect_slashes=True
-)
+)                                        
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"],         
 )
 
 app.include_router(interactions.router)
@@ -25,7 +25,7 @@ app.include_router(chat.router)
 
 @app.get("/")
 def root():
-    return {"message": "HCP CRM API is running!"}
+    return {"message": "HCP CRM API is running!"}                 
 
 @app.get("/health")
 def health():
