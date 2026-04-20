@@ -16,7 +16,7 @@ export default function HCPProfile() {
   }, [dispatch]);
 
   // Get unique HCP names
-  const uniqueHCPs = [...new Set(list.map(i => i.hcp_name).filter(Boolean))];
+  const uniqueHCPs = [...new Set(list.map(i => i.hcp_name).filter(Boolean))]; 
 
   // Filter HCPs by search
   const filteredHCPs = uniqueHCPs.filter(name =>
@@ -185,7 +185,7 @@ export default function HCPProfile() {
                     </div>
                   </div>
 
-                  {/* Ask AI Button */}
+                  {/* Ask AI Button */} 
                   <button
                     onClick={handleAskAI}
                     disabled={chatLoading}
