@@ -16,7 +16,7 @@ export default function InteractionsList() {
     dispatch(fetchInteractions()); 
   }, [dispatch]);
 
-  const handleDelete = (id) => {
+  const handleDelete = (id) => { 
     if (window.confirm('Delete this interaction?')) {
       dispatch(deleteInteraction(id));
     }
