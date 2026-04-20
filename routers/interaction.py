@@ -8,10 +8,10 @@ from typing import List
 router = APIRouter(prefix="/interactions", tags=["Interactions"])
 
 # Valid types MySQL accepts
-VALID_TYPES = ["visit", "call", "email", "conference", "meeting"]
+VALID_TYPES = ["visit", "call", "email", "conference", "meeting"]          
 
 def sanitize_type(value: str) -> str:
-    """Make sure interaction_type is always a valid ENUM value"""
+    """Make sure interaction_type is always a valid ENUM value"""            
     if not value:
         return "visit"
     cleaned = value.strip().lower()
