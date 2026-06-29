@@ -9,7 +9,7 @@ import os
 load_dotenv()
 
 # Read database connection string from .env
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")     
                                                     
 # Create the MySQL engine (connection pool)
 engine = create_engine(
@@ -25,7 +25,7 @@ SessionLocal = sessionmaker(
 )                                      
 
 # Base class for all our database models
-Base = declarative_base()
+Base = declarative_base()    
 
 #  Dependency 
 def get_db():
@@ -37,4 +37,4 @@ def get_db():
     try:
         yield db
     finally:
-        db.close()
+        db.close()   
