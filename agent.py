@@ -12,7 +12,7 @@ import os
 import json
 
 load_dotenv()
-
+     
 #  Initialize Groq LLM 
 llm = ChatGroq(
     api_key=os.getenv("GROQ_API_KEY"),
