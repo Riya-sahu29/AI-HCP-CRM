@@ -35,15 +35,15 @@ class Interaction(Base):
     interaction_date  = Column(String(100), nullable=True)
 
     # Follow-up details
-    follow_up_date  = Column(String(100), nullable=True)
+    follow_up_date  = Column(String(100), nullable=True)              
     follow_up_notes = Column(Text, nullable=True)
 
     # Auto timestamps
     created_at = Column(
         DateTime(timezone=True),
-        server_default=func.now()
+        server_default=func.now()               
     )
     updated_at = Column(
-        DateTime(timezone=True),
+        DateTime(timezone=True),                        
         onupdate=func.now()
     )
