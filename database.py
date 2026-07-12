@@ -21,7 +21,7 @@ engine = create_engine(
 SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
-    bind=engine
+    bind=engine    
 )                                      
 
 # Base class for all our database models
@@ -31,7 +31,7 @@ Base = declarative_base()
 def get_db():
     """
     Creates a new database session for each request
-    and closes it automatically when request is done
+    and closes it automatically when request is done   
     """
     db = SessionLocal()
     try:
